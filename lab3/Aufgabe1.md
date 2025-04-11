@@ -176,6 +176,7 @@ sequenceDiagram
     participant Subsystem1
     participant Subsystem2
 
+    Client->>Facade: request()
     Facade->>Subsystem1: operation1()
     Subsystem1-->>Facade: response1()
     Facade->>Subsystem2: operation2()
