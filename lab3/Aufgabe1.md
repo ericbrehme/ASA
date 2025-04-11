@@ -19,6 +19,43 @@ sequenceDiagram
     Adapter-->>Client: response()
 ```
 
+### Code Example
+```java
+// Adapter Pattern Example with Explanations in Java
+// Target Interface
+interface Target {
+    void request();
+}
+// Adaptee Class
+class Adaptee {
+    public void specificRequest() {
+        System.out.println("Adaptee: specificRequest");
+    }
+}
+// Adapter Class
+class Adapter implements Target {
+    private Adaptee adaptee;
+
+    public Adapter(Adaptee adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    public void request() {
+        System.out.println("Adapter: request");
+        adaptee.specificRequest();
+    }
+}
+// Client Code
+public class AdapterPatternExample {
+    public static void main(String[] args) {
+        Adaptee adaptee = new Adaptee();
+        Target adapter = new Adapter(adaptee);
+        adapter.request();
+    }
+}
+```
+
+
 
 ## Bridge Pattern
 
