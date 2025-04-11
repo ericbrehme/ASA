@@ -101,6 +101,47 @@ sequenceDiagram
     Subsystem2-->>Facade: response2()
     Facade-->>Client: finalResponse()
 ```
+
+### Code Example
+```java
+// Facade Pattern Example with Explanations in Java
+// Subsystem Classes
+class Subsystem1 {
+    public void operation1() {
+        System.out.println("Subsystem1: operation1");
+    }
+}
+class Subsystem2 {
+    public void operation2() {
+        System.out.println("Subsystem2: operation2");
+    }
+}
+// Facade Class
+class Facade {
+    private Subsystem1 subsystem1;
+    private Subsystem2 subsystem2;
+
+    public Facade() {
+        subsystem1 = new Subsystem1();
+        subsystem2 = new Subsystem2();
+    }
+
+    public void operation() {
+        subsystem1.operation1();
+        subsystem2.operation2();
+        System.out.println("Facade: operation completed");
+    }
+}
+// Client Code
+public class FacadePatternExample {
+    public static void main(String[] args) {
+        Facade facade = new Facade();
+        facade.operation();
+    }
+}
+```
+
+
 ## Erklärung der Diagramme
 
 Die drei Design-Patterns Adapter, Bridge und Facade bieten unterschiedliche Ansätze zur Strukturierung von Code und zur Verbesserung der Wartbarkeit. Während das Adapter Pattern dazu dient, inkompatible Schnittstellen zu verbinden, ermöglicht das Bridge Pattern eine flexible Trennung von Abstraktion und Implementierung. Das Facade Pattern hingegen vereinfacht den Zugriff auf komplexe Systeme durch eine einheitliche Schnittstelle.
