@@ -85,7 +85,6 @@ public class BridgePatternExample {
     }
 }
 ```
-```java
 
 ### Facade Pattern
 Das Facade Pattern bietet eine vereinfachte Schnittstelle zu einem komplexen System. Der Facade-Objekt kommuniziert mit verschiedenen Subsystemen und aggregiert deren Antworten, um dem Client eine einfache Schnittstelle zu bieten. Der Client interagiert nur mit der Facade, ohne sich um die Details der Subsysteme kümmern zu müssen.
