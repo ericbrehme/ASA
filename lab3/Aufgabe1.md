@@ -55,6 +55,23 @@ public class AdapterPatternExample {
 }
 ```
 
+### UML
+```mermaid
+classDiagram
+    class Target {
+        +request()
+    }
+    class Adaptee {
+        +specificRequest()
+    }
+    class Adapter {
+        -Adaptee adaptee
+        +Adapter(Adaptee adaptee)
+        +request()
+    }
+    Target <|-- Adapter
+    Adapter --> Adaptee
+```
 
 
 ## Bridge Pattern
@@ -123,6 +140,32 @@ public class BridgePatternExample {
 }
 ```
 
+### UML
+```mermaid
+classDiagram
+    class Abstraction {
+        -Implementor implementor
+        +Abstraction(Implementor implementor)
+        +operation()
+    }
+    class RefinedAbstraction {
+        +operation()
+    }
+    class Implementor {
+        +operationImpl()
+    }
+    class ConcreteImplementorA {
+        +operationImpl()
+    }
+    class ConcreteImplementorB {
+        +operationImpl()
+    }
+    Abstraction <|-- RefinedAbstraction
+    Abstraction --> Implementor
+    Implementor <|-- ConcreteImplementorA
+    Implementor <|-- ConcreteImplementorB
+```
+
 ### Facade Pattern
 Das Facade Pattern bietet eine vereinfachte Schnittstelle zu einem komplexen System. Der Facade-Objekt kommuniziert mit verschiedenen Subsystemen und aggregiert deren Antworten, um dem Client eine einfache Schnittstelle zu bieten. Der Client interagiert nur mit der Facade, ohne sich um die Details der Subsysteme kümmern zu müssen.
 
@@ -178,6 +221,24 @@ public class FacadePatternExample {
 }
 ```
 
+### UML
+```mermaid
+classDiagram
+    class Facade {
+        -Subsystem1 subsystem1
+        -Subsystem2 subsystem2
+        +Facade()
+        +operation()
+    }
+    class Subsystem1 {
+        +operation1()
+    }
+    class Subsystem2 {
+        +operation2()
+    }
+    Facade --> Subsystem1
+    Facade --> Subsystem2
+```
 
 ## Erklärung der Diagramme
 
