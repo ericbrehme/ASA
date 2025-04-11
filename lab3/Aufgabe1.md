@@ -171,6 +171,7 @@ Das Facade Pattern bietet eine vereinfachte Schnittstelle zu einem komplexen Sys
 
 ```mermaid
 sequenceDiagram
+    participant Client
     participant Facade
     participant Subsystem1
     participant Subsystem2
