@@ -35,7 +35,57 @@ sequenceDiagram
     ConcreteImplementor-->>Implementor: implementationResponse()
     Implementor-->>Abstraction: response()
 ```
-## Facade Pattern
+
+### Code Example
+```java
+// Bridge Pattern Example with Explanations in Java
+// Implementor Interface
+interface Implementor {
+    void operationImpl();
+}
+// Concrete Implementor
+class ConcreteImplementorA implements Implementor {
+    public void operationImpl() {
+        System.out.println("ConcreteImplementorA: operationImpl");
+    }
+}
+class ConcreteImplementorB implements Implementor {
+    public void operationImpl() {
+        System.out.println("ConcreteImplementorB: operationImpl");
+    }
+}
+// Abstraction Class
+abstract class Abstraction {
+    protected Implementor implementor;
+    public Abstraction(Implementor implementor) {
+        this.implementor = implementor;
+    }
+    public abstract void operation();
+}
+// Refined Abstraction
+class RefinedAbstraction extends Abstraction {
+    public RefinedAbstraction(Implementor implementor) {
+        super(implementor);
+    }
+    public void operation() {
+        System.out.println("RefinedAbstraction: operation");
+        implementor.operationImpl();
+    }
+}
+// Client Code
+public class BridgePatternExample {
+    public static void main(String[] args) {
+        Implementor implementorA = new ConcreteImplementorA();
+        Abstraction abstractionA = new RefinedAbstraction(implementorA);
+        abstractionA.operation();
+
+        Implementor implementorB = new ConcreteImplementorB();
+        Abstraction abstractionB = new RefinedAbstraction(implementorB);
+        abstractionB.operation();
+    }
+}
+```
+```java
 
 ### Facade Pattern
 Das Facade Pattern bietet eine vereinfachte Schnittstelle zu einem komplexen System. Der Facade-Objekt kommuniziert mit verschiedenen Subsystemen und aggregiert deren Antworten, um dem Client eine einfache Schnittstelle zu bieten. Der Client interagiert nur mit der Facade, ohne sich um die Details der Subsysteme kümmern zu müssen.
